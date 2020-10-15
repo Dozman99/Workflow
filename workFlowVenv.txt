@@ -1,0 +1,16 @@
+py -m pip install --user virtualenv
+# To install the virtual environment.
+
+
+py -m venv env
+ # To create a virtual environment.
+
+. env/Scripts/activate
+# Niggar you was hot, this code to execute on Git is priceless. This is to activate virtual environment
+
+deactivate
+# To deactivate.
+
+pip freeze
+# To check all the installed packages
+

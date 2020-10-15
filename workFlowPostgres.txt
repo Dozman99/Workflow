@@ -1,0 +1,67 @@
+using git bash, to login as a user use:
+    psql -U postgres
+
+\q => to quit
+\l => to list
+
+
+
+
+create data base
+    CREATE DATABASE thedb;
+
+to login to a dbserver
+the way to remember the order is to is to loook at it alphabetically
+    psql -h localhost -p 5432 -U postgres dbserver
+
+
+to login to a database under a particular user:
+    \c thedb
+
+to delete database, the most dangerous code is the:
+    DROP DATABASE test;
+
+to create a table:
+        CREATE TABLE person (
+        id INT,
+        first_name VARCHAR(50),
+        last_name VARCHAR(50),
+        gender VARCHAR(7),
+        date_of_birth DATE,
+        );
+    then it will CREATE TABLE
+
+\d => to list all the tables in the database
+
+
+\d thetable => to view the table name
+
+
+
+ this table is with constraints
+CREATE TABLE person (
+id BIGSERIAL NOT NULL PRIMARY KEY,
+first_name VARCHAR(50) NOT NULL,
+last_name VARCHAR(50) NOT NULL,
+gender VARCHAR(7) NOT NULL,
+date_of_birth DATE NOT NULL,
+email VARCHAR(150)
+);
+
+bogserial manages the increments
+
+this to insert a person or a role in the 'person'
+INSERT INTO person (first_name, last_name, gender, date_of_birth)
+VALUES('Anne', 'Smith', 'FEMALE', date '1988-01-09');
+
+to sort table:
+    assending order by default (ASC)
+    SELECT * FROM person ORDER BY country_of_birth;
+    by desending
+    SELECT * FROM person ORDER BY country_of_birth DESC;
+    SELECT country_of_birth FROM person ORDER BY country_of_birth DESC;
+ * means all
+distinct
+      SELECT DISTINCT country_of_birth FROM person ORDER BY country_of_birth DESC;
+ this will select all the country with no duplicate
+
