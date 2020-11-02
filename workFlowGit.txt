@@ -1,0 +1,120 @@
+How to display a major heading in readme.md file:
+#For major Headings
+##For second major Headings
+
+
+
+###############################always git pull or git fetch before you git push just incase your collegue has already made a commit ##########
+
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+echo "# django-templates" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin git@github.com:Dozman99/django-templates.git
+git push -u origin main
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+git remote add origin git@github.com:Dozman99/django-templates.git
+git branch -M main
+git push -u origin main
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
+
+##########BASH COMMAND###########
+$ mv index.html read.html
+to rename index.html to read.html
+
+git push -u origin start
+#Means to initialize the main branch "start" on gitHub
+# or in other words to push our main branch "start" to be created on gitHub and then linked to the local repo
+git branch source
+#creates a new branch named "source"
+git branch
+#lists the branches to a project...hit "q" to get out of that
+git branch -v 
+#shows more information
+git checkout source
+#this is to enter the branch "source"
+
+
+
+#we 'git add' before we 'git commit' then 'git push'
+
+
+git commit -m "bla bla bla"
+
+git commit -a ===>git add + git commit
+git commit -am "bla bla bla"
+
+git status
+#checks the branch I'm in and if "master" it checks if I'm updated with the"origin/master" which is the master repo on gitHub
+############ LOG ############
+git log
+#Helps to check the all the commit timeline on that current repo....Hit "q" to exit
+git log -- index.html
+# to view the commit associated with index.html
+git help log
+#to show ho to use the log command
+
+
+#"origin" is the remote reference
+
+git remote -v
+# shows me the fetch URL and the push URL
+# Because we could fetch from one repo and push to my private repo or my worrking repo
+git remote show orign
+#shows more details
+git remote rm origin
+# is to remove the remote connections  
+git remote add origin git@github.com:Dozman99/todoapp.git
+#this is to add the ssh remote
+
+git push origin master
+# which means push to "master" on gitHub
+# "c42ac60..10cc624  main -> main" which means pushed from local/main to origin/main
+
+
+git reset HEAD index.html 
+#to unstage "index.html"
+git  checkout -- index.html
+# to roll bacck the changes made to the file index.html
+
+git fetch 
+# check for any changes or updates with out initiating the changes this its to 
+
+#WHILE WORKING WITH A TEAM
+git pull ===> git fetch + git merge
+git pull origin master
+
+
+########DELETE#######
+git rm file.txt
+#to delete a file 
+git add -A
+#to stage the monitored deleted file for a commit that it was deleted
+
+##########RENAME##############
+git mv 404.html error.html
+#to rename from 404.html to error.html
+#Rename on the file system is seen as delete and a new file to be staged(git add -A)
+
+
+#######################ALIAS############
+#alias stores git commands that are too long
+# now lets store "log --oneline --all --decorate --graph" command and name the alias "jack"
+git config --global alias.jack "log --oneline --all --decorate --graph"
+
+NOW USING BASH
+# at "~/" create .bash_profile
+code .bash_profile
+#let's create 2 alias
+alias ll='ls -al'
+alias jk='git jack'
+#save and close the file                                                                                                            

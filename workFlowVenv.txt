@@ -11,6 +11,7 @@ py -m venv env
 deactivate
 # To deactivate.
 
-pip freeze
-# To check all the installed packages
+pip freeze => requirements.txt
+# To place all the installed packages into a requirements.txt file
 
+or use [pip tool]

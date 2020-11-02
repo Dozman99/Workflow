@@ -4,6 +4,10 @@ using git bash, to login as a user use:
 \q => to quit
 \l => to list
 
+$ pg_ctl -D "C:\Program Files\PostgreSQL\12\data" stop
+$ pg_ctl -D "C:\Program Files\PostgreSQL\12\data" start
+$ pg_ctl -D "C:\Program Files\PostgreSQL\12\data" restart
+
 
 
 
@@ -35,6 +39,40 @@ to create a table:
 
 
 \d thetable => to view the table name
+
+
+///////////////////////////////////////////
+before we get into the rest, lets do HOW TO CONNECT APOST GRES ACCOUNT TO DJANGO
+install 
+pip install psycopg2&&psycopg2-binary
+///////
+then create db at the command line 
+CREATE DATABASE <name of the database in lowercase> OWNER postgres;
+//////
+at pgAdmin on chrome 
+create a server
+name the server 
+connection: localhost
+password:<user password>
+//////
+mwdb=>properties=>security
+gurantee: <user>
+previllages: all
+///////////////LATER LEARN HOW TO USE SSH LATER
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'mwdb',
+        'USER': 'postgres',
+        'PASSWORD': 'dozman4db',
+        'HOST': 'localhost',
+
+    }
+}
+////////////////////////////////////////////////////////////////////
+
+
+
 
 
 

@@ -1,0 +1,18 @@
+listing running containers
+docker ps
+
+list of docker ever started up and also to the ID of a running container
+docker ps --all
+
+NOTE
+docker run = docker create + docker 
+docstarted
+
+docker run + <name of the container> + <overridden command on the container>
+
+docker create + <name of the image to use for the container>
+
+docker start + <ID of the container>
+printing out the out put of the container
+docker start + -a + <ID of the container>
+
