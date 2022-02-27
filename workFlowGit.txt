@@ -3,6 +3,20 @@ How to display a major heading in readme.md file:
 ##For second major Headings
 
 
+##########################################################
+ 
+#check git status
+git status
+ 
+#getting help from the command line
+git help
+ 
+#list all git commands and sub-commands
+git help -a
+ 
+#getting help for a particular git command
+git help <command> # for example, git help init will provide details of git init command
+
 
 ###############################always git pull or git fetch before you git push just incase your collegue has already made a commit ##########
 
