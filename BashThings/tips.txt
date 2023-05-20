@@ -1,0 +1,74 @@
+Understanding the data flow
+While the pipe operator | redirects the stdout from the last command to the stdin of the next command,
+the xargs command builds and executes a command from the stdin.
+
+To put it simply:
+
+| stdout -> stdin
+xargs stdin -> command arguments
+As xargs happens to expect the result of the pipe operator,
+a combination of both comes of in handy for converting stdout into command arguments:
+
+| xargs stdout -> stdin (pipe) -> command arguments (xargs)
+When to use | and | xargs?
+To put it simply, it depends on the command you want to execute,
+as different commands handle the stdin or command arguments in different ways, depending on it's implementation.
+
+In other words, even commands which accept both stdin and arguments can behaviour differently depending on which one of them you provided,
+as you can see in the examples bellow.
+
+Still, if you want some kind of rule, you can think that:
+
+if the data you want a command to process is already in the stdout,
+you should use the pipe operator |;
+if the stdout contains either names of files whose content you want to process or even arguments for changing a command's default behaviour,
+you should use the combination | xargs;
+However, be prepared for exceptions.
+
+Examples
+Setting up the scenario for the next examples:
+
+echo "hello_world_content" > "hello_world.txt"
+# Creates a file named "hello_world.txt" and
+# writes "hello_world_content" inside it
+
+The grep command:
+
+ls | grep "hello"
+# Grep searches for 'hello' in the stdout of the ls command
+# Outputs: hello_world.txt
+
+
+ls | xargs grep "hello"
+# Corresponds to: grep 'hello_world.txt'
+# Outputs: hello_world_content
+The echo command:
+
+ls | echo
+# Outputs a blank line, as echo seems to ignore the stdin
+# Outputs:
+
+
+ls | xargs echo
+# Corresponds to: echo 'hello_world.txt'
+# Outputs: hello_world.txt
+The cat command:
+
+ls | cat
+# Reads and prints the stdout of ls
+# Outputs: hello_world.txt
+
+
+ls | xargs cat
+# Corresponds to: cat 'hello_world.txt'
+# Outputs: hello_world_content
+The cat command [Part II]:
+
+echo "this_file_does_not_exists.txt" | cat
+# Reads and prints the stdout of echo
+# Outputs: this_file_does_not_exists.txt
+
+
+echo "this_file_does_not_exists.txt" | xargs cat
+# Corresponds to: cat 'this_file_does_not_exists.txt'
+# Outputs error: cat: this_file_does_not_exists.txt: No such file or directory
